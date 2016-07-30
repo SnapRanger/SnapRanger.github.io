@@ -53,7 +53,7 @@ function createHTMLString(data) {
         '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>'+
         '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
         '<div class="wrapper">'+
-        '<img id="avatar" src="defaultAnimalAvatar.jpg">'+
+        '<img id="avatar" src="images/defaultAnimalAvatar.jpg">'+
         '</div>'+
         '<div id="bodyContent">'+
         '<p>SPECIES: '+data.SPECIES+'</p>'+
