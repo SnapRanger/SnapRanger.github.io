@@ -52,11 +52,10 @@ function createHTMLString(data) {
     var str = '<div class="container" id="content"><div id="close" onclick="closePopup()">'+
         '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>'+
         '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
-        '<img src="images/defaultAnimalAvatar.jpg">'+
+        '<img src="images/defaultAnimalAvatar.jpg"></img>'+
         '<div id="bodyContent">'+
         '<p>SPECIES: '+data.SPECIES+'</p>'+
         '<p>STATUS: '+data.EPBCSTATUS+'</p>'+
-        '<a href="collection.html" class="btn btn-primary btn-sm collection">View Collection</a>'+
         '</div>'+
         '</div>';
     var popup = document.getElementById('popup');
