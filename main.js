@@ -26,7 +26,10 @@ var API_KEY = 'AIzaSyDh4DBiOnOtGIHdwJTrVdDWupmYjtnWCcY';
 var map;
 var jsonData;
 var markers = [];
+var infowindow;
+
 function initMap() {
+    infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -28, lng: 153.5 },
         zoom: 10
@@ -49,29 +52,42 @@ function initMap() {
 
 function createMarkers(data) {
     markers = [];
-    // for (var i = 100; i < 200; i++) {
-        console.log(data[189]);
-        console.log(getIconName(data[189].EPBCSTATUS));
-    // }
-
     for (var i = 0; i < data.length; i++) {
         var marker = new google.maps.Marker({
             position: { lat: data[i].Y, lng: data[i].X },
             title: data[i].COMMONNAME,
             icon: getIconName(data[i].EPBCSTATUS)
         });
+        marker.data = data[i];
         markers.push(marker);
+
+        google.maps.event.addListener(marker, 'click', function(e) {
+            // infowindow.setContent('Marker position: ' + this.getPosition());
+            infowindow.setContent(createHTMLString(this.data));
+            infowindow.open(map, this);
+        });
     }
 }
 
+function createHTMLString(data) {
+    return '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
+      '<div id="bodyContent">'+
+      '<p>SPECIES: '+data.SPECIES+'</p>'+
+      '<p>STATUS: '+data.EPBCSTATUS+'</p>'+
+      '</div>'+
+      '</div>';
+}
 function showMarkers() {
-    var items = 10;
-    for (var j = 0; j < items; j++) {
-        for (var i = 0; i < markers.length/items; i++) {
+    // var items = 10;
+    // for (var j = 0; j < items; j++) {
+        for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(map);
         }
         // TODO: to do better processing of data
-    }
+    // }
 }
 
 function removeMarkers() {
@@ -120,7 +136,6 @@ function query(string) {
 
 document.getElementById('searchBtn').addEventListener('click', function() {
     var queryString = document.getElementById('search').value;
-    console.log(queryString);
     query(queryString);
 });
 
