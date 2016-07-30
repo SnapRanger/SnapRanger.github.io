@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Koala Information</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="snapRanger.ico" rel="icon" type="images/faviconJCR.ico" />
+  <style>
+      html, body {
+        height: 370px;
+        padding: 0;
+        margin: 0;
+      }
+      
+      #search {
+	float: right;
+	margin-top: 9px;
+	width: 250px;
+      }
+
+      .search {
+	padding: 5px 0;
+	width: 230px;
+	height: 30px;
+	position: relative;
+	left: 10px;
+	float: left;
+	line-height: 22px;
+      }
+      
+      .search input {
+	position: absolute;
+	width: 0px;
+	float: Left;
+	margin-left: 210px;
+	-webkit-transition: all 0.7s ease-in-out;
+	-moz-transition: all 0.7s ease-in-out;
+	-o-transition: all 0.7s ease-in-out;
+	transition: all 0.7s ease-in-out;
+	height: 30px;
+	line-height: 18px;
+	padding: 0 2px 0 2px;
+	border-radius:1px;
+      }
+
+        .search:hover input, .search input:focus {
+            width: 200px;
+            margin-left: 0px;
+        }
+
+	#avatar{
+	  background-repeat: no-repeat;
+	  background-position: 50%;
+	  border-radius: 50%;
+	  max-height: 500px;
+	  max-width: 500px;
+  
+	}
+	.wrapper {
+	  width:250px;
+	  height:250px;
+	  margin: 25px auto;
+	  overflow: hidden;
+	  border-radius:50%;
+	  position: relative;
+	}
+	
+	.wrapper #avatar {
+	  position: absolute;
+	  top:50%;
+	  left:50%;
+	  transform: translate(-50%,-50%)
+	}	
+
+
+    </style>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!--<script>
+      var map;
+      var src = 'boat-ramps-af1b8d1c_a186_4e72_8e9e_549a8065e970.kml';
+
+      /**
+       * Initializes the map and calls the function that creates polylines.
+       */
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(29.86798417,22.96975695),
+		  //<longitude>122.38656548288353</longitude>
+            //<latitude>-75.43066544018615</latitude>
+          zoom: 5,
+          mapTypeId: 'terrain'
+        });
+        loadKmlLayer(src, map);
+      }
+
+      /**
+       * Adds a KMLLayer based on the URL passed. Clicking on a marker
+       * results in the balloon content being loaded into the right-hand div.
+       * @param {string} src A URL for a KML file.
+       */
+      function loadKmlLayer(src, map) {
+        var kmlLayer = new google.maps.KmlLayer(src, {
+          suppressInfoWindows: true,
+          preserveViewport: false,
+          map: map
+        });
+        google.maps.event.addListener(kmlLayer, 'click', function(event) {
+          var content = event.featureData.infoWindowHtml;
+          var testimonial = document.getElementById('capture');
+          testimonial.innerHTML = content;
+        });
+       }
+      </script>-->
+</head>
+<body>
+    <!-- nav bar -->
+    <div class="navbar navbar-inverse">
+        <!-- container fluid -->
+        <div class="container-fluid">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Snap Ranger</a>
+            </div> <!-- /navbar-header -->
+            <!-- Search bar -->
+	    <form class="navbar-form navbar-left">
+	      <div class="form-group">
+		<input type="text" class="form-control" placeholder="Search">
+	      </div>
+	      <button type="submit" class="btn btn-primary">Submit</button>
+	    </form> <!-- /search bar -->
+            <!-- list of pages -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">About</a></li>
+                <li><a href="app.html">View Map</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul> <!-- /list of pages -->   
+        </div> <!-- /container fluid -->
+    </div> <!-- /nav bar -->
+  
+<div >
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <h1>Koala</h1>
+    <div class="wrapper">
+      <img id="avatar" src="defaultAnimalAvatar.jpg">
+    </div>
+    
+    <h3>John Smith</h3>
+    <label>Level: </label><p>Junior Ranger</p>
+    <container>
+      <!-- scrollable images-->
+      <div class="pic-container">
+	<div class="pic-row">
+	  <img src="possum.jpg"> <!-- taken from http://www.outlawyarn.com/possum.html-->
+	  <img src="kangaroo.jpg"> <!--Photo by Paul Kane/Getty Images-->
+	  <img src="koala.jpg"> <!--http://animals.sandiegozoo.org/animals/koala-->
+	  <img src="sugarGlider.jpg"> <!--http://apiguide/Shutterstock.com-->
+	</div>
+      </div>
+    </container>
+    
+    <!--  Achievments  -->
+    
+    
+    <!--<div id="map"></div>
+      <script async defer
+	   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMEU63dIs8rwN1mYt1-RMAgz2ea4N564E&callback=initMap">
+      </script>
+    </div>-->
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+</body>
+</html>
+
