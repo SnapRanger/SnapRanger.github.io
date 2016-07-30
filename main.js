@@ -52,8 +52,8 @@ function createHTMLString(data) {
     var str = '<div class="container" id="content"><div id="close" onclick="closePopup()">'+
         '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>'+
         '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
-        '<div style="width:250px;height:250px;margin:25px auto;overflow: hidden;border-radius:50%;	position: relative;position: absolute;top:50%;left:50%;	transform: translate(-50%,-50%);">'+
-        '<img style="background-repeat:no-repeat; background-position: 50%;	border-radius: 50%;	max-height: 500px; max-width: 500px;position: absolute;	top:50%;left:50%;transform: translate(-50%,-50%);" src="images/defaultAnimalAvatar.jpg"></img>'+
+        '<div class="wrapper">'+
+        '<img id="avatar" src="defaultAnimalAvatar.jpg">'+
         '</div>'+
         '<div id="bodyContent">'+
         '<p>SPECIES: '+data.SPECIES+'</p>'+
