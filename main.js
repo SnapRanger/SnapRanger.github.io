@@ -49,10 +49,16 @@ function initMap() {
 
 function createMarkers(data) {
     markers = [];
+    // for (var i = 100; i < 200; i++) {
+        console.log(data[189]);
+        console.log(getIconName(data[189].EPBCSTATUS));
+    // }
+
     for (var i = 0; i < data.length; i++) {
         var marker = new google.maps.Marker({
             position: { lat: data[i].Y, lng: data[i].X },
             title: data[i].COMMONNAME,
+            icon: getIconName(data[i].EPBCSTATUS)
         });
         markers.push(marker);
     }
@@ -64,7 +70,7 @@ function showMarkers() {
         for (var i = 0; i < markers.length/items; i++) {
             markers[i].setMap(map);
         }
-        // attempt to do better processing of data
+        // TODO: to do better processing of data
     }
 }
 
@@ -72,6 +78,27 @@ function removeMarkers() {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
+}
+
+function getIconName(string) {
+    var icon;
+    switch(string) {
+        case 'Marine':
+            icon = 'images/mapPinMarine.png'
+            break;
+        case 'Vulnerable':
+            icon = 'images/mapPinVulnerable.png'
+            break;
+        case 'Endangered':
+            icon = 'images/mapPinEndangered.png'
+            break;
+        case 'Critically Endangered':
+            icon = 'images/mapPinCriticallyEndangered.png'
+            break;
+        default:
+            icon = 'images/mapPinNormal.png'
+        }
+    return icon;
 }
 
 function query(string) {
@@ -109,18 +136,19 @@ if (navigator.geolocation) {
         map.setCenter(pos);
 
         var marker = new google.maps.Marker({
-           position: pos,
-           map: map//your map,
+            position: pos,
+            map: map,
+            title: 'Your Location',
            // icon: //the dot icon
         });
         var circle = new google.maps.Circle({
             center: pos,
             radius: accuracy,
-            map: map, //your map,
-            fillColor: '#0000ff', //color,
-            fillOpacity: 0.3, //opacity from 0.0 to 1.0,
-            strokeColor: '#0000ff', //stroke color,
-            strokeOpacity: 0.9, //opacity from 0.0 to 1.0
+            map: map,
+            fillColor: '#0000ff',
+            fillOpacity: 0.3,
+            strokeColor: '#0000ff',
+            strokeOpacity: 0.9,
         });
 
         //set the zoom level to the circle's size
