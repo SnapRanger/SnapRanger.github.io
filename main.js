@@ -52,9 +52,7 @@ function createHTMLString(data) {
     var str = '<div class="container" id="content"><div id="close" onclick="closePopup()">'+
         '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>'+
         '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
-        '<div class="wrapper">'+
-        '<img id="avatar" src="images/defaultAnimalAvatar.jpg">'+
-        '</div>'+
+        '<img src="images/defaultAnimalAvatar.jpg">'+
         '<div id="bodyContent">'+
         '<p>SPECIES: '+data.SPECIES+'</p>'+
         '<p>STATUS: '+data.EPBCSTATUS+'</p>'+
