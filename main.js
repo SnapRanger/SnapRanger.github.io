@@ -1,35 +1,12 @@
 var API_KEY = 'AIzaSyDh4DBiOnOtGIHdwJTrVdDWupmYjtnWCcY';
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
-
-
-// function getCsv(filepath, callback) {
-//     $.ajax({
-//         type: "GET",
-//         url: filepath,
-//         dataType: "json",
-//         success: function(data) {
-//             callback(data);
-//         },
-//         error: function(xhr, ajaxOptions, thrownError) {
-//             alert("Status: " + xhr.status + "     Error: " + thrownError);
-//         }
-//     });
-// };
-
-// function (str) {
-
-// }
 
 var map;
 var jsonData;
 var markers = [];
-var infowindow;
+// var infowindow;
 
 function initMap() {
-    infowindow = new google.maps.InfoWindow();
+    // infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -28, lng: 153.5 },
         zoom: 10
@@ -50,6 +27,10 @@ function initMap() {
     });
 }
 
+function closePopup() {
+    document.getElementById('popup').style.zIndex = '-1';
+}
+
 function createMarkers(data) {
     markers = [];
     for (var i = 0; i < data.length; i++) {
@@ -62,24 +43,29 @@ function createMarkers(data) {
         markers.push(marker);
 
         google.maps.event.addListener(marker, 'click', function(e) {
-            // infowindow.setContent('Marker position: ' + this.getPosition());
-            infowindow.setContent(createHTMLString(this.data));
-            infowindow.open(map, this);
+            createHTMLString(this.data);
         });
     }
 }
 
 function createHTMLString(data) {
-    return '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
-      '<div id="bodyContent">'+
-      '<p>SPECIES: '+data.SPECIES+'</p>'+
-      '<p>STATUS: '+data.EPBCSTATUS+'</p>'+
-      '</div>'+
-      '</div>';
+    var str = '<div class="container" id="content"><div id="close" onclick="closePopup()">'+
+        '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>'+
+        '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
+        '<img src="images/defaultAnimalAvatar.jpg"></img>'+
+        '<div id="bodyContent">'+
+        '<p>SPECIES: '+data.SPECIES+'</p>'+
+        '<p>STATUS: '+data.EPBCSTATUS+'</p>'+
+        '</div>'+
+        '</div>';
+    var popup = document.getElementById('popup');
+    var popupData = document.getElementById('popupData');
+    popupData.innerHTML = str;
+    popup.style.zIndex = '10';
+
+    return str;
 }
+
 function showMarkers() {
     // var items = 10;
     // for (var j = 0; j < items; j++) {
