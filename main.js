@@ -58,7 +58,7 @@ function createHTMLString(data) {
         '<div id="bodyContent">'+
         '<p>SPECIES: '+data.SPECIES+'</p>'+
         '<p>STATUS: '+data.EPBCSTATUS+'</p>'+
-        '<button href="collection.html" class="btn btn-primary btn-sm collection">View Collection</button>'+
+        '<a href="collection.html" class="btn btn-primary btn-sm collection">View Collection</a>'+
         '</div>'+
         '</div>';
     var popup = document.getElementById('popup');
