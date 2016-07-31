@@ -1,57 +1,146 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @steffitan
- Watch 0
-  Star 0
- Fork 0 SnapRanger/SnapRanger.github.io
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
-SnapRanger.github.io/ 
-profile.html
-   or cancel
-    
- Edit file    Preview changes
 
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Profile - John Smith</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0">
+    <link rel="shortcut ic<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile - John Smith</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="255x255" href="apple-touch-icon.png" />
+  <style>
+      html, body {
+        height: 370px;
+        padding: 0;
+        margin: 0;
+      }
+	#avatar{
+	  background-repeat: no-repeat;
+	  background-position: 50%;
+	  border-radius: 50%;
+	  max-height: 500px;
+	  max-width: 500px;
+	}
+	.wrapper {
+	  width:250px;
+	  height:250px;
+	  margin: 25px auto;
+	  overflow: hidden;
+	  border-radius:50%;
+	  position: relative;
+	}
+	.wrapper #avatar {
+	  position: absolute;
+	  top:50%;
+	  left:50%;
+	  transform: translate(-50%,-50%)
+	}
+
+    </style>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+    <!-- nav bar --> 
+    <div class="navbar navbar-inverse">
+        <!-- container fluid -->
+        <div class="container-fluid">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+    	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span> 
+    	      </button>
+              <a class="navbar-brand" href="index.html">Snap Ranger</a>
+            </div> <!-- /navbar-header -->
+            <!-- list of pages -->
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav navbar-right ">
+		  <li><a href="index.html">About</a></li>
+		  <li><a href="app.html">View Map</a></li>
+		  <li><a href="profile.html">Profile</a></li>
+	      </ul> <!-- /list of pages -->
+	    </div>  
+        </div> <!-- /container fluid -->
+    </div> <!-- /nav bar -->
+
+<div >
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <h1>John Smith</h1>
+    <div class="wrapper">
+      <img id="avatar" src="images/defaultAnimalAvatar.jpg">
+    </div>
+
+    <h3>John Smith</h3>
+    <label>Level: </label><p>Junior Ranger</p>
+    
+    <container>
+      <!-- scrollable images-->
+      <div class="pic-container col-sm-10">
+	<p></p>
+	<label>Your Photos</label>
+	<p></p>
+	<div class="pic-row">
+	    <img src="images/possum.jpg " width="100" height="100"> <!-- taken from http://www.outlawyarn.com/possum.html-->
+	    <img src="images/kangaroo.jpg" width="100" height="100"> <!--Photo by Paul Kane/Getty Images-->
+	    <img src="images/koala.jpg" width="100" height="100"> <!--http://animals.sandiegozoo.org/animals/koala-->
+	    <img src="images/sugarGlider.jpg" width="100" height="100"> <!--http://apiguide/Shutterstock.com-->
+	    <button class="btn btn-primary" style="margin:10px;">View More</button>
+	</div>
+      </div>
+    </container>
+
+    <!--  Achievments  -->
+    <p></br></p>
+    
+    <container>
+      <!-- scrollable images-->
+      <div class="pic-container col-sm-10">
+	<p></br></p>
+	<label>Achievements</label>
+	<p></p>
+	<div class="pic-row row center">
+	  <figure class="col-sm-2">
+	    <img src="images/trophy.png" alt="Trohpy Achieved" width="100" height="100">
+	    <figcaption>4/10 Marsupials</figcaption>
+	  </figure>
+	  <figure class="col-sm-2">
+	    <img src="images/trophySilhouette.png" alt="Trohpy Achieved" width="100" height="100">
+	    <figcaption>4/3 Birds</figcaption>
+	  </figure>
+	  <figure class="col-sm-2">
+	    <img src="images/trophySilhouette.png" alt="Trohpy Achieved" width="100" height="100">
+	    <figcaption>5/3 Mammals</figcaption>
+	  </figure>
+	  <figure class="col-sm-2">
+	    <img src="images/trophySilhouette.png" alt="Trohpy Achieved" width="100" height="100">
+	    <figcaption>0/3 Amphibians</figcaption>
+	  </figure>
+
+	</div>
+      </div>
+    </container>
+
+
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+</body>
+</html>on" type="image/x-icon" href="favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72.png" />
