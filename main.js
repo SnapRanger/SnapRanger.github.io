@@ -16,7 +16,8 @@ function initMap() {
         dataType: "json",
         success: function(data) {
             jsonData = data;
-            createMarkers(jsonData);
+            var firstLoad = true
+            createMarkers(jsonData, firstLoad);
             showMarkers();
         },
         error: function(xhr, ajaxOptions, thrownError) {
@@ -30,10 +31,15 @@ function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
 
-function createMarkers(data) {
+function createMarkers(data, firstLoad) {
+    var skipCount = 1;
+    if (firstLoad  === true) {
+        skipCount = 5;
+    }
+
     markers = [];
     // for (var i = 0; i < data.length; i++) {
-    for (var i = 0; i < data.length; i=i+5) {
+    for (var i = 0; i < data.length; i=i+skipCount) { // every 5th to speed up loading
         var marker = new google.maps.Marker({
             position: { lat: data[i].Y, lng: data[i].X },
             title: data[i].COMMONNAME,
@@ -65,7 +71,7 @@ function createHTMLString(data) {
 
     var collection = '';
     if (data.COMMONNAME === 'Koala') {
-        collection = '<a class="btn btn-primary" href="collection.html">Collection</a>'
+        collection = '<a class="btn btn-primary" href="collection.html">Collection</a><br>'
     }
 
     var status = data.EPBCSTATUS ? data.EPBCSTATUS : 'Common';
