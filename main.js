@@ -71,7 +71,7 @@ function createHTMLString(data) {
 
     var collection = '';
     if (data.COMMONNAME === 'Koala') {
-        collection = '<a class="btn btn-primary" href="collection.html">Collection</a><br>'
+        collection = '<a class="btn btn-primary" href="collection.html">Collection</a>'
     }
 
     var status = data.EPBCSTATUS ? data.EPBCSTATUS : 'Common';
