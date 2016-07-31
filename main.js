@@ -27,6 +27,7 @@ function initMap() {
 
 function closePopup() {
     document.getElementById('popup').style.zIndex = '-1';
+    document.getElementById('popup').style.display = 'none';
 }
 
 function createMarkers(data) {
@@ -63,6 +64,7 @@ function createHTMLString(data) {
     var popupData = document.getElementById('popupData');
     popupData.innerHTML = str;
     popup.style.zIndex = '10';
+    popup.style.display = 'block';
 
     return str;
 }
