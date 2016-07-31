@@ -86,14 +86,22 @@
     }
 
     #legend {
-        position: absolute;
-        top: 53px;
-        right: 50px;
-        font-family: Arial, sans-serif;
-        background: #fff;
-        padding: 10px;
-        margin: 10px;
-      }
+        display: none;
+    }
+
+    @media only screen and (min-device-width: 768px) {
+        #legend {
+            display: table;
+            position: absolute;
+            top: 53px;
+            right: 50px;
+            font-family: Arial, sans-serif;
+            background: #fff;
+            padding: 10px;
+            margin: 10px;
+          }
+    }
+
     </style>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -149,8 +157,8 @@
     <table id="legend" class="table" style="width:100px">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Legend</th>
+                <th>Icon</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
