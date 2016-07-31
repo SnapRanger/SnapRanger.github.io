@@ -128,6 +128,12 @@ document.getElementById('searchBtn').addEventListener('click', function() {
     query(queryString);
 });
 
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var queryString = document.getElementById('search').value;
+    query(queryString);
+});
+
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
