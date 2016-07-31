@@ -130,8 +130,10 @@ document.getElementById('searchBtn').addEventListener('click', function() {
 
 document.getElementById('searchForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    e.stopPropagation();
     var queryString = document.getElementById('search').value;
     query(queryString);
+    return false;
 });
 
 
