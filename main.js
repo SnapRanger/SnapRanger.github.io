@@ -130,6 +130,9 @@ function getAvatarImage(data) {
         case 'koala':
             return 'koala.jpg'
             break;
+        case 'spotted-tailed quoll':
+            return 'spotted-tailed-quoll.jpg'
+            break;
         default:
             return 'defaultAnimalAvatar.jpg'
         }
