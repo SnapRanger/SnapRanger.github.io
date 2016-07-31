@@ -1,54 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Koala Information</title>
+    <title>Profile - John Smith</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72.png" />
     <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114.png" />
     <link rel="apple-touch-icon" sizes="255x255" href="apple-touch-icon.png" />
-  <style>
-      html, body {
-        height: 370px;
-        padding: 0;
+    <style>
+    html,
+    body {
+        height: 100%;
         margin: 0;
-      }
-
-	#avatar{
-	  background-repeat: no-repeat;
-	  background-position: 50%;
-	  border-radius: 50%;
-	  max-height: 500px;
-	  max-width: 500px;
-
-	}
-	.wrapper {
-	  width:250px;
-	  height:250px;
-	  margin: 25px auto;
-	  overflow: hidden;
-	  border-radius:50%;
-	  position: relative;
-	}
-
-	.wrapper #avatar {
-	  position: absolute;
-	  top:50%;
-	  left:50%;
-	  transform: translate(-50%,-50%)
-	}
-
-
+        padding: 0;
+    }
+    #map {
+        height: 86%;
+        margin: auto;
+        width: 100%;
+    }
+    nav.navbar,
+    div.navbar {
+        margin-bottom: 0;
+    }
+    #search {
+        float: right;
+        width: 250px;
+    }
+    .search {
+        padding: 5px 0;
+        width: 230px;
+        height: 30px;
+        position: relative;
+        left: 10px;
+        float: left;
+        line-height: 22px;
+    }
+    .search input {
+        position: absolute;
+        width: 0px;
+        float: Left;
+        margin-left: 210px;
+        -webkit-transition: all 0.7s ease-in-out;
+        -moz-transition: all 0.7s ease-in-out;
+        -o-transition: all 0.7s ease-in-out;
+        transition: all 0.7s ease-in-out;
+        height: 30px;
+        line-height: 18px;
+        padding: 0 2px 0 2px;
+        border-radius: 1px;
+    }
+    #popup {
+        position: absolute;
+        top: 52px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: -1;
+        min-height: 100%;
+        display: none;
+    }
+    #close {
+        cursor: pointer;
+        font-size: 3em;
+        position: relative;
+        top: 10px;
+        float: right;
+    }
     </style>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
 </head>
+
+<body>
     <!-- nav bar --> 
     <div class="navbar navbar-inverse">
         <!-- container fluid -->
@@ -72,34 +103,17 @@
 	    </div>  
         </div> <!-- /container fluid -->
     </div> <!-- /nav bar -->
-
-<div >
-  <div class="col-sm-2"></div>
-  <div class="col-sm-8">
-    <h1>Koala</h1>
-    <div class="wrapper">
-      <img id="avatar" src="images/defaultAnimalAvatar.jpg">
+    <div id="popup">
+        <div id="popupData"></div>
+        <div class="container">
+            <input type="file" capture="camera" accept="image/*;capture=camera" name="cameraInput">
+        </div>
+        <!-- <input type="submit"> -->
     </div>
-
-    <h3>John Smith</h3>
-    <label>Level: </label><p>Junior Ranger</p>
-    <container>
-      <!-- scrollable images-->
-      <div class="pic-container">
-	<div class="pic-row">
-	  <img src="images/possum.jpg"> <!-- taken from http://www.outlawyarn.com/possum.html-->
-	  <img src="images/kangaroo.jpg"> <!--Photo by Paul Kane/Getty Images-->
-	  <img src="images/koala.jpg"> <!--http://animals.sandiegozoo.org/animals/koala-->
-	  <img src="images/sugarGlider.jpg"> <!--http://apiguide/Shutterstock.com-->
-	</div>
-      </div>
-    </container>
-
-    <!--  Achievments  -->
-
-
-  </div>
-  <div class="col-sm-2"></div>
-</div>
+    <div id="map"></div>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh4DBiOnOtGIHdwJTrVdDWupmYjtnWCcY&callback=initMap" async defer></script>
+    <script src="main.js"></script>
 </body>
+
 </html>
