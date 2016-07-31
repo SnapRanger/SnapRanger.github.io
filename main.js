@@ -53,7 +53,7 @@ function createHTMLString(data) {
     var str = '<div class="container" id="content"><div id="close" onclick="closePopup()">'+
         '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>'+
         '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
-        '<img src="images/defaultAnimalAvatar.jpg"></img>'+
+        '<img src="images/'+ getAvatarImage(data) +'"></img>'+
         '<div id="bodyContent">'+
         '<p>GENUS: '+data.GENUS+'</p>'+
         '<p>SPECIES: '+data.SPECIES+'</p>'+
@@ -86,24 +86,32 @@ function removeMarkers() {
 }
 
 function getIconName(string) {
-    var icon;
     switch(string) {
         case 'Marine':
-            icon = 'images/mapPinMarine.png'
+            return 'images/mapPinMarine.png'
             break;
         case 'Vulnerable':
-            icon = 'images/mapPinVulnerable.png'
+            return 'images/mapPinVulnerable.png'
             break;
         case 'Endangered':
-            icon = 'images/mapPinEndangered.png'
+            return 'images/mapPinEndangered.png'
             break;
         case 'Critically Endangered':
-            icon = 'images/mapPinCriticallyEndangered.png'
+            return 'images/mapPinCriticallyEndangered.png'
             break;
         default:
-            icon = 'images/mapPinNormal.png'
+            return 'images/mapPinNormal.png'
         }
-    return icon;
+}
+
+function getAvatarImage(data) {
+    switch(data.COMMONNAME.toLowerCase()) {
+        case 'koala':
+            return 'koala.jpg'
+            break;
+        default:
+            return 'defaultAnimalAvatar.jpg'
+        }
 }
 
 function query(string) {
