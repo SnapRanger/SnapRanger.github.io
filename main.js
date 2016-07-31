@@ -3,13 +3,11 @@ var API_KEY = 'AIzaSyDh4DBiOnOtGIHdwJTrVdDWupmYjtnWCcY';
 var map;
 var jsonData;
 var markers = [];
-// var infowindow;
 
 function initMap() {
-    // infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -28, lng: 153.5 },
-        zoom: 10
+        zoom: 12
     });
 
     $.ajax({
@@ -33,7 +31,8 @@ function closePopup() {
 
 function createMarkers(data) {
     markers = [];
-    for (var i = 0; i < data.length; i++) {
+    // for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i=i+5) {
         var marker = new google.maps.Marker({
             position: { lat: data[i].Y, lng: data[i].X },
             title: data[i].COMMONNAME,
