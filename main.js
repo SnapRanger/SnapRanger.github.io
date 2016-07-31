@@ -43,7 +43,20 @@ function createMarkers(data) {
         markers.push(marker);
 
         google.maps.event.addListener(marker, 'click', function(e) {
+            queryStr = this.data.COMMONNAME
             createHTMLString(this.data);
+            $.ajax({
+                url: 'https://data.qld.gov.au/api/action/datastore_search?resource_id=d96e8d57-e502-4d22-b878-b3bfdb78413e&limit=1&q='+encodeURI(queryStr),
+                dataType: 'json',
+                success: function(data) {
+                    if (data.result.records.length > 0) {
+                        document.getElementById('popupQLDData').innerHTML = '<div class="container" id="content">'+
+                            '<p>Type: '+ data.result.records[0].PlantOrAnimalType +'<p>' +
+                            '<p>Species Information: <a href="'+ data.result.records[0].Link +'"">Link</a><p>'+
+                            '</div>';
+                    }
+                }
+            });
         });
     }
 }
