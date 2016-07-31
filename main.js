@@ -6,7 +6,7 @@ var markers = [];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -28, lng: 153.5 },
+        center: { lat: -28, lng: 153.35 },
         zoom: 12
     });
 
@@ -48,13 +48,15 @@ function createMarkers(data) {
 }
 
 function createHTMLString(data) {
+    var status = data.EPBCSTATUS ? data.EPBCSTATUS : 'Common';
     var str = '<div class="container" id="content"><div id="close" onclick="closePopup()">'+
         '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>'+
         '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
         '<img src="images/defaultAnimalAvatar.jpg"></img>'+
         '<div id="bodyContent">'+
+        '<p>GENUS: '+data.GENUS+'</p>'+
         '<p>SPECIES: '+data.SPECIES+'</p>'+
-        '<p>STATUS: '+data.EPBCSTATUS+'</p>'+
+        '<p>STATUS: '+ status+'</p>'+
         '</div>'+
         '</div>';
     var popup = document.getElementById('popup');
