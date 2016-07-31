@@ -19,7 +19,7 @@
         padding: 0;
     }
 
-    .image{
+    .image {
         max-width: 100%;
         height: auto;
     }
@@ -84,6 +84,16 @@
         top: 10px;
         float: right;
     }
+
+    #legend {
+        position: absolute;
+        top: 53px;
+        right: 50px;
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+      }
     </style>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -98,39 +108,75 @@
         <div class="container-fluid">
             <!-- navbar-header -->
             <div class="navbar-header">
-    	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        		<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-    	      </button>
-              <a class="navbar-brand" href="index.html">Snap Ranger</a>
-            </div> <!-- /navbar-header -->
-	    <!-- Search bar -->
-	    <form id="searchForm" class="navbar-form navbar-left">
-	      <div class="form-group">
-		    <input type="text" id="search" class="form-control" placeholder="Search">
-	      </div>
-	      <button type="submit" id="searchBtn" class="btn btn-primary">Submit</button>
-	    </form> <!-- /search bar -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Snap Ranger</a>
+            </div>
+            <!-- /navbar-header -->
+            <!-- Search bar -->
+            <form id="searchForm" class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" id="search" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" id="searchBtn" class="btn btn-primary">Submit</button>
+            </form>
+            <!-- /search bar -->
             <!-- list of pages -->
-	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav navbar-right ">
-		  <li><a href="index.html">About</a></li>
-		  <li><a href="app.html">View Map</a></li>
-		  <li><a href="profile.html">Profile</a></li>
-	      </ul> <!-- /list of pages -->
-	    </div>
-        </div> <!-- /container fluid -->
-    </div> <!-- /nav bar -->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right ">
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="app.html">View Map</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+                <!-- /list of pages -->
+            </div>
+        </div>
+        <!-- /container fluid -->
+    </div>
+    <!-- /nav bar -->
     <div id="popup">
         <div id="popupData"></div>
         <div id="popupQLDData"></div>
         <div class="container">
             <input type="file" capture="camera" accept="image/*;capture=camera" name="cameraInput">
         </div>
-        <!-- <input type="submit"> -->
     </div>
     <div id="map"></div>
+    <!-- Legend -->
+    <table id="legend" class="table" style="width:100px">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Legend</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="images/mapPinNormal.png" class="img-circle" alt="" width="15px" height="15px"></td>
+                <td>Normal</td>
+            </tr>
+            <tr>
+                <td><img src="images/mapPinMarine.png" class="img-circle" alt="" width="15px" height="15px"></td>
+                <td>Marine</td>
+            </tr>
+            <tr>
+                <td><img src="images/mapPinVulnerable.png" class="img-circle" alt="" width="15px" height="15px"></td>
+                <td>Vulnerable</td>
+            </tr>
+            <tr>
+                <td><img src="images/mapPinEndangered.png" class="img-circle" alt="" width="15px" height="15px"></td>
+                <td>Endangered</td>
+            </tr>
+            <tr>
+                <td><img src="images/mapPinCriticallyEndangered.png" class="img-circle" alt="" width="15px" height="15px"></td>
+                <td>Critically Endangered</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Legend End -->
     <script src="js/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh4DBiOnOtGIHdwJTrVdDWupmYjtnWCcY&callback=initMap" async defer></script>
     <script src="main.js"></script>
