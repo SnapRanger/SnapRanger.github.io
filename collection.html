@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Koala Collection</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="255x255" href="apple-touch-icon.png" />
+    <style>
+    html,
+    body {
+        height: 370px;
+        padding: 0;
+        margin: 0;
+    }
+
+    #map {
+        height: 250px;
+        width: 100%;
+        overflow: hidden;
+        float: left;
+        margin: auto;
+        border: 3px solid green;
+        padding: 10px;
+    }
+
+    #capture {
+        height: 360px;
+        width: 480px;
+        overflow: hidden;
+        float: left;
+        background-color: #ECECFB;
+        border: thin solid #333;
+        border-left: none;
+    }
+
+    #search {
+        float: right;
+        margin-top: 9px;
+        width: 250px;
+    }
+
+    .search {
+        padding: 5px 0;
+        width: 230px;
+        height: 30px;
+        position: relative;
+        left: 10px;
+        float: left;
+        line-height: 22px;
+    }
+
+    .search input {
+        position: absolute;
+        width: 170px;
+        margin-right: 210px;
+        height: 30px;
+        line-height: 18px;
+        padding: 0 2px 0 2px;
+        border-radius: 1px;
+    }
+
+    .search:hover input,
+    .search input:focus {
+        width: 200px;
+        margin-left: 0px;
+    }
+
+    .btn {
+        height: 30px;
+        position: absolute;
+        right: 0;
+        top: 5px;
+        border-radius: 1px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .container2 {
+        position: absolute;
+        top: 1000;
+    }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Snap Ranger</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a>
+                        <div class="container">
+                            <div class="row">
+                                <div class="search">
+                                    <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" />
+                                    <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Connect to other</h2>
+        <p>Snap Ranger & share your found it's
+            <p>
+                <table class="table table-condensed">
+                    <tbody>
+                        <tr>
+                            <td><img src="images/luke.jpg" class="img-circle" alt="User photo's" width="100px" height="100px"></a>
+                                <h3>Luke Thorpe</h3></td>
+                            <td>I found this little guy by the big oak tree in the middle of the park!
+                                <a href="#"> "location"</a> </td>
+                            <td><img src="images/koala1.jpg" class="img-rounded" alt="Animal photo's" width="150px" height="150px"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/jack.jpg" class="img-circle" alt="User photo's" width="100px" height="100px">
+                                <h3>Jack Chiang</h3></td>
+                            <td>I found a Koala!
+                                <a href="#"> "location"</a></td>
+                            <td><img src="images/koala2.jpg" class="img-rounded" alt="Animal photo's" width="150px" height="150px"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/sebastian.jpg" class="img-circle" alt="User photo's" width="100px" height="100px">
+                                <h3>Sebastian Schmidt</h3></td>
+                            <td>- Look at this cute koala i found
+                                <a href="#"> "location"</a></td>
+                            <td><img src="images/koala3.jpg" class="img-rounded" alt="Animal photo's" width="150px" height="150px"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/steffi.jpg" class="img-circle" alt="User photo's" width="100px" height="100px">
+                                <h3>Steffi Tan</h3></td>
+                            <td>- if u go into the park and follow the path, about 1 km down the track I found this koala just off the path
+                                <a href="#"> "location"</a></td>
+                            <td><img src="images/koala4.jpg" class="img-rounded" alt="Animal photo's" width="150px" height="150px"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/rubiana.jpg" class="img-circle" alt="User photo's" width="100px" height="100px">
+                                <h3>Rubiana Cury</h3></td>
+                            <td>- It took me forever to find this guy! he was hiding up behind a big tree branch.
+                                <a href="#"> "location"</a></td>
+                            <td><img src="images/koala5.jpg" class="img-rounded" alt="Animal photo's" width="150px" height="150px"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/jonathan.jpg" class="img-circle" alt="User photo's" width="100px" height="100px">
+                                <h3>Jonathan Romero</h3></td>
+                            <td>- - I spent my Saturday going for a bush walk and look who i stumbled upon during my walk! <a href="#"> "location"</a> </td>
+                            <td><img src="images/koala6.jpg" class="img-rounded" alt="Animal photo's" width="150px" height="150px"></td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
+</body>
+
+</html>

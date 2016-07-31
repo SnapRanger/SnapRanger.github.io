@@ -62,6 +62,12 @@ function createMarkers(data) {
 }
 
 function createHTMLString(data) {
+
+    var collection = '';
+    if (data.COMMONNAME === 'Koala') {
+        collection = '<a class="btn btn-primary" href="collection.html">Collection</a>'
+    }
+
     var status = data.EPBCSTATUS ? data.EPBCSTATUS : 'Common';
     var str = '<div class="container" id="content"><div id="close" onclick="closePopup()">'+
         '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>'+
@@ -72,6 +78,7 @@ function createHTMLString(data) {
         '<p>Species: '+data.SPECIES+'</p>'+
         '<p>Status: '+ status+'</p>'+
         '<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Special:Search?search='+ encodeURI(data.COMMONNAME) +'">More Info</a></p>'+
+        collection +
         '</div>'+
         '</div>';
     var popup = document.getElementById('popup');
