@@ -52,7 +52,7 @@ function createMarkers(data) {
                     if (data.result.records.length > 0) {
                         document.getElementById('popupQLDData').innerHTML = '<div class="container" id="content">'+
                             '<p>Type: '+ data.result.records[0].PlantOrAnimalType +'<p>' +
-                            '<p>Species Information: <a href="'+ data.result.records[0].Link +'"">Link</a><p>'+
+                            '<p><a href="'+ data.result.records[0].Link +'">Species Information</a><p>'+
                             '</div>';
                     }
                 }
@@ -66,12 +66,12 @@ function createHTMLString(data) {
     var str = '<div class="container" id="content"><div id="close" onclick="closePopup()">'+
         '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>'+
         '<h1 id="firstHeading" class="firstHeading">' + data.COMMONNAME + '</h1>'+
-        '<img src="images/'+ getAvatarImage(data) +'"></img>'+
+        '<img class="image" src="images/'+ getAvatarImage(data) +'"></img>'+
         '<div id="bodyContent">'+
-        '<p>GENUS: '+data.GENUS+'</p>'+
-        '<p>SPECIES: '+data.SPECIES+'</p>'+
-        '<p>STATUS: '+ status+'</p>'+
-        '<p>WIKI: <a href="https://en.wikipedia.org/wiki/Special:Search?search='+ encodeURI(data.COMMONNAME) +'">More Info</a></p>'+
+        '<p>Genus: '+data.GENUS+'</p>'+
+        '<p>Species: '+data.SPECIES+'</p>'+
+        '<p>Status: '+ status+'</p>'+
+        '<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Special:Search?search='+ encodeURI(data.COMMONNAME) +'">More Info</a></p>'+
         '</div>'+
         '</div>';
     var popup = document.getElementById('popup');
