@@ -58,6 +58,7 @@ function createHTMLString(data) {
         '<p>GENUS: '+data.GENUS+'</p>'+
         '<p>SPECIES: '+data.SPECIES+'</p>'+
         '<p>STATUS: '+ status+'</p>'+
+        '<p>WIKI: <a href="https://en.wikipedia.org/wiki/Special:Search?search='+ encodeURI(data.COMMONNAME) +'">More Info</a></p>'+
         '</div>'+
         '</div>';
     var popup = document.getElementById('popup');
