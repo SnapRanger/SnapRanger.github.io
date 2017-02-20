@@ -10,6 +10,8 @@ function initMap() {
         zoom: 12
     });
 
+    showUserLocation();
+
     $.ajax({
         type: "GET",
         url: 'data.json',
@@ -174,38 +176,39 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     return false;
 });
 
+function showUserLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var accuracy = position.coords.accuracy;
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+            };
 
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        var accuracy = position.coords.accuracy;
-        var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-        };
+            map.setCenter(pos);
 
-        map.setCenter(pos);
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: 'Your Location',
+               // icon: //the dot icon
+            });
+            var circle = new google.maps.Circle({
+                center: pos,
+                radius: accuracy,
+                map: map,
+                fillColor: '#0000ff',
+                fillOpacity: 0.3,
+                strokeColor: '#0000ff',
+                strokeOpacity: 0.9,
+            });
 
-        var marker = new google.maps.Marker({
-            position: pos,
-            map: map,
-            title: 'Your Location',
-           // icon: //the dot icon
+            //set the zoom level to the circle's size
+            map.fitBounds(circle.getBounds());
         });
-        var circle = new google.maps.Circle({
-            center: pos,
-            radius: accuracy,
-            map: map,
-            fillColor: '#0000ff',
-            fillOpacity: 0.3,
-            strokeColor: '#0000ff',
-            strokeOpacity: 0.9,
-        });
 
-        //set the zoom level to the circle's size
-        map.fitBounds(circle.getBounds());
-    });
-
-} else {
-    // Browser doesn't support Geolocation
-    console.error('Error: The Geolocation service failed.');
+    } else {
+        // Browser doesn't support Geolocation
+        console.error('Error: The Geolocation service failed.');
+    }
 }

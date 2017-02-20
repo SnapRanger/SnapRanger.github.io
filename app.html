@@ -89,24 +89,48 @@
         display: none;
     }
 
-/*    @media only screen and (min-device-width: 768px) {
+    @media only screen and (min-width: 768px) {
         #legend {
             display: table;
             position: absolute;
-            top: 53px;
-            right: 50px;
+            width: 139px;
+            top: 95px;
+            left: 0;
             font-family: Arial, sans-serif;
             background: #fff;
-            padding: 10px;
             margin: 10px;
           }
     }
-*/
+
+    @media only screen and (min-width: 600px) and (max-width: 767px) {
+        #legend {
+            font-size: 12px;
+            display: table;
+            position: absolute;
+            width: 124px;
+            top: 168px;
+            left: 0;
+            font-family: Arial, sans-serif;
+            background: #fff;
+            margin: 10px;
+          }
+    }
+
+    /* mobile search */
+    @media only screen and (max-width: 360px) {
+        #searchBtn {
+            display: none;
+        }
+        #search {
+            width: 100%;
+            float: none;
+        }
+    }
+
     </style>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -155,7 +179,7 @@
     </div>
     <div id="map"></div>
     <!-- Legend -->
-    <table id="legend" class="table" style="width:100px">
+    <table id="legend" class="table">
         <thead>
             <tr>
                 <th>Icon</th>
@@ -186,9 +210,8 @@
         </tbody>
     </table>
     <!-- Legend End -->
-    <script src="js/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh4DBiOnOtGIHdwJTrVdDWupmYjtnWCcY&callback=initMap" async defer></script>
     <script src="main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh4DBiOnOtGIHdwJTrVdDWupmYjtnWCcY&callback=initMap" async defer></script>
 </body>
 
 </html>
